@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tất Cả Sản Phẩm</title>
+    <%- include('partials/head')  -%> 
+</head>
+<body>
+    <div class="channel-sell">
+        <%- include('partials/menu-channel-sell') -%>
+
+            <div class="body-sell container-fluid">
+                <div class="row">
+                    <%- include('partials/sidebar-channel-sell') -%>
+
+                    <div class="col-xl-10 col-lg-10 col-md-10 content-product-all">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Tên sản phẩm</th>
+                                    <th class="product-image">Ảnh</th>
+                                    <th>Phân loại</th>
+                                    <th>Loại hàng</th>
+                                    <th>Giá</th>
+                                    <th>Kho hàng</th>
+                                    <th>Số lượng</th>
+                                    <th>Sửa thông tin</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% data.forEach(item => { %>
+                                    <tr>
+                                        <td><p><%= item.Product_Name %> </p></td>
+                                        <td class="product-image"><div class="image"><img src="images/<%= item.Product_Image %>" alt=""></div></td>
+                                        <td><p><%= item.Product_Classify %> </p></td>
+                                        <td><p><%= item.Product_Type %> </p></td>
+                                        <td><p><%= item.Product_Price %> VNĐ</p></td>
+                                        <td><p><%= item.Product_Store %> </p></td>
+                                        <td><p><%= item.Product_Amount %> </p></td>
+                                        <td class="product-info">
+                                            <a href="edit/<%= item.Product_ID%>" class="btn-fix"><img src="icons/fix.svg" alt=""></a>
+                                            <a href="delete/<%= item.Product_ID%>" class="btn-delete"><img src="icons/del.svg" alt=""></a>
+                                        </td>
+                                    </tr>
+                                <% }) %>
+                                
+                            </tbody>
+                        </table>
+                        <a href="add" class="add-product">+ Thêm sản phẩm</a>
+                    </div>
+                </div>
+
+            </div>
+    </div>
+
+    <%- include('partials/scripts')  -%>
+    <script src="/javascripts/myjs-test.js"></script>
+</body>
+</html>

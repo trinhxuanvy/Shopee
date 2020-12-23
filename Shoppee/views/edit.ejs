@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tất Cả Sản Phẩm</title>
+    <%- include('partials/head')  -%>
+</head>
+<body>
+    <div class="channel-sell">
+        <%- include('partials/menu-edit') -%>
+
+            <div class="body-sell container-fluid">
+                <div class="row">
+                    <%- include('partials/sidebar-channel-sell') -%>
+
+                    <div class="col-xl-10 col-lg-10 col-md-10 content-product-all">
+                        <form action="/edit" method="post">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Tên sản phẩm</th>
+                                        <th class="product-image">Ảnh</th>
+                                        <th>Phân loại</th>
+                                        <th>Loại hàng</th>
+                                        <th>Giá</th>
+                                        <th>Kho hàng</th>
+                                        <th>Số lượng</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="display: none;">
+                                            <label for="id"></label>
+                                            <input type="text" name="id" value="<%= data.id %>">
+                                        </td>
+                                        <td>
+                                            <label for="name"></label>
+                                            <input type="text" name="name" required="" value="<%= data.name %>">
+                                        </td>
+                                        <td class="product-image">
+                                            <label for="image" class="image">
+                                                <img src=".././images/<%= data.image %>" alt="">
+                                            </label>
+                                            <input type="file" name="image" id="getImage" required="" value="<%= data.image %>">
+                                        </td>
+                                        <td>
+                                            <label for="classify"></label>
+                                            <input type="text" name="classify" required="" value="<%= data.classify %>">
+                                        </td>
+                                        <td>
+                                            <label for="type"></label>
+                                            <input type="text" name="type" required="" value="<%= data.type %>">
+                                        </td>
+                                        <td>
+                                            <label for="price"></label>
+                                            <input type="text" name="price" required="" value="<%= data.price %>">
+                                        </td>
+                                        <td>
+                                            <label for="store"></label>
+                                            <input type="text" name="store" required="" value="<%= data.store %>">
+                                        </td>
+                                        <td>
+                                            <label for="amount"></label>
+                                            <input type="text" name="amount" required="" value="<%= data.amount %>">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <input type="submit" class="add-product" value="+ Lưu sản phẩm">
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+    </div>
+
+    <%- include('partials/scripts')  -%>
+</body>
+</html>
