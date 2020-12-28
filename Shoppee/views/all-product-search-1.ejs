@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giá tốt cuối năm</title>
+    <%- include('partials/head') %>
+</head>
+
+<body>
+    <%- include('partials/menu-top-1') -%>
+
+    <div class="product-search container">
+        <div class="row">
+            <% product.forEach(item => { %>
+                <div class="col-xl-2 product-item">
+                    <a href="product/<%= item.IDMatHang %>">
+                        <div class="card">
+                            <div class="image-product">
+                                <img src=".././upload-images/<%= item.LinkAnh %>" alt="">
+                            </div>
+                            <div class="info-product">
+                                <p class="name-product"><%= item.TenMatHang %> </p>
+                                <p class="price-product">₫<%= item.Gia %></p>
+                                <p class="sold">Đã bán 1000</p>
+                                <p class="place-ship">Thành phố Hồ Chí Minh</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            <% }) %>
+        </div>
+        <div class="pagi">
+            <form action="/nganhhang/<%= id %>">
+                <label for="page"></label>
+                <input type="hidden" name="page" value="1">
+                <button type="submit">1</button>
+            </form>
+            <form action="/nganhhang/<%= id %>">
+                <label for="page"></label>
+                <input type="hidden" name="page" value="2">
+                <button type="submit">2</button>
+            </form>
+            <form action="/nganhhang/<%= id %>">
+                <label for="page"></label>
+                <input type="hidden" name="page" value="3">
+                <button type="submit">3</button>
+            </form>
+            <form action="/nganhhang/<%= id %>">
+                <label for="page"></label>
+                <input type="hidden" name="page" value="4">
+                <button class="ok" type="submit">4</button>
+            </form>
+            <form action="/nganhhang/<%= id %>">
+                <label for="page"></label>
+                <input type="hidden" name="page" value="5">
+                <button class="ok" type="submit">5</button>
+            </form>
+            <form action="/nganhhang/<%= id %>">
+                <label for="page"></label>
+                <input type="hidden" name="page" value="6">
+                <button class="ok" type="submit">6</button>
+            </form>
+            <form action="/nganhhang/<%= id %>">
+                <label for="page"></label>
+                <input type="hidden" name="page" value="7">
+                <button class="ok" type="submit">7</button>
+            </form>
+            <form action="/nganhhang/<%= id %>">
+                <label for="page"></label>
+                <input type="hidden" name="page" value="8">
+                <button class="ok" type="submit">8</button>
+            </form>
+            <form action="/nganhhang/<%= id %>">
+                <label for="page"></label>
+                <input type="hidden" name="page" value="9">
+                <button class="ok" type="submit">9</button>
+            </form>
+            <form action="/nganhhang/<%= id %>">
+                <label for="page"></label>
+                <input type="hidden" name="page" value="10">
+                <button class="ok" type="submit">10</button>
+            </form>
+            <form action="/nganhhang/<%= id %>">
+                <label for="page"></label>
+                <input type="hidden" name="page" value="11">
+                <button class="ok" type="submit">11</button>
+            </form>
+        </div>
+    </div>
+
+    <%- include('partials/scripts') %>
+</body>
+
+</html>

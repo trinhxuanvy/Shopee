@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tất Cả Sản Phẩm</title>
+    <%- include('partials/head') -%>
+</head>
+
+<body>
+    <div class="channel-sell">
+        <%- include('partials/menu-channel-sell') -%>
+
+            <div class="body-sell container-fluid">
+                <div class="row">
+                    <%- include('partials/sidebar-channel-sell') -%>
+
+                        <div class="col-xl-10 col-lg-10 col-md-10 content-product-all">
+                            <div class="row">
+                                <% data.forEach(item => { %>
+                                    <div class="col-xl-3">
+                                        <img src="upload-image/<%= item.ImageName %> " alt="">
+                                    </div>
+                                <% }) %>
+                            </div>
+                            <div class="page">
+                                <form action="test">
+                                    <label for="page"></label>
+                                    <input type="hidden" name="page" value="1">
+                                    <button type="submit">1</button>
+                                </form>
+                                <form action="test">
+                                    <label for="page"></label>
+                                    <input type="hidden" name="page" value="2">
+                                    <button type="submit">2</button>
+                                </form>
+                                <form action="test">
+                                    <label for="page"></label>
+                                    <input type="hidden" name="page" value="3">
+                                    <button type="submit">3</button>
+                                </form>
+                            </div>
+                        </div>
+                </div>
+
+            </div>
+    </div>
+
+    <%- include('partials/scripts') -%>
+</body>
+
+</html>

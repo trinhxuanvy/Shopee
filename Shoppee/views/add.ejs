@@ -17,63 +17,130 @@
                     <%- include('partials/sidebar-channel-sell') -%>
 
                         <div class="col-xl-10 col-lg-10 col-md-10 content-product-all">
-                            <form action="channel-sell-mnbill-all" method="post">
-                                <table class="table table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>Tên sản phẩm</th>
-                                            <th class="product-image">Ảnh</th>
-                                            <th>Phân loại</th>
-                                            <th>Loại hàng</th>
-                                            <th>Giá</th>
-                                            <th>Kho hàng</th>
-                                            <th>Số lượng</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <label for="name"></label>
-                                                <input type="text" name="name" required="">
-                                            </td>
-                                            <td class="product-image">
-                                                <label for="image" class="image">
-                                                    <img src="images/noimage.png" alt="">
-                                                </label>
-                                                <input type="file" name="image" id="getImage" required="">
-                                            </td>
-                                            <td>
-                                                <label for="classify"></label>
-                                                <input type="text" name="classify" required="">
-                                            </td>
-                                            <td>
-                                                <!-- <label for="type"></label>
-                                            <input type="text" name="type" required=""> -->
-                                                <div class="form-group">
-                                                    <label for="type"></label>
-                                                    <select class="form-control" name="type" id="">
-                                                        <% type.forEach(item => { %>
-                                                            <option><%= item.TypeProduct_Name %></option>
-                                                        <% }) %>
-                                                    </select>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <label for="price"></label>
-                                                <input type="text" name="price" required="">
-                                            </td>
-                                            <td>
-                                                <label for="store"></label>
-                                                <input type="text" name="store" required="">
-                                            </td>
-                                            <td>
-                                                <label for="amount"></label>
-                                                <input type="text" name="amount" required="">
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <input type="submit" class="add-product" value="+ Lưu sản phẩm">
+                            <div class="header">
+                                <p>Thêm Sản Phẩm</p>
+                            </div>
+                            <form class="action-add" method="POST" action="add">
+                                <div class="input-name">
+                                    <p class="title">*Tên sản phẩm</p>
+                                    <div class="input">
+                                        <label for="tensanpham"></label>
+                                        <input type="text" name="tensanpham" value="" required="">
+                                    </div>
+                                </div>
+                                <div class="table">
+                                    <div class="row">
+                                        <div class="col-xl-4 type">                                
+                                            <ul class="ul-nganhhang"></ul>          
+                                        </div> 
+                                        <div class="col-xl-4 type">
+                                            <ul class="ul-loaihang">
+                                                <li class="loaihang">
+                                                    <p></p>
+                                                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                                </li>
+                                                <li class="loaihang">
+                                                    <p></p>
+                                                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                                </li>
+                                                <li class="loaihang">
+                                                    <p></p>
+                                                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                                </li>
+                                                <li class="loaihang">
+                                                    <p></p>
+                                                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                                </li>
+                                                <li class="loaihang">
+                                                    <p></p>
+                                                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                                </li>
+                                            </ul>     
+                                        </div>
+                                        <div class="col-xl-4">
+                                            <ul class="ul-maumathang">
+                                                <li class="maumathang">
+                                                    <p></p>
+                                                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                                </li>
+                                                <li class="maumathang">
+                                                    <p></p>
+                                                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                                </li>
+                                                <li class="maumathang">
+                                                    <p></p>
+                                                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                                </li>
+                                                <li class="maumathang">
+                                                    <p></p>
+                                                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                                </li>
+                                                <li class="maumathang">
+                                                    <p></p>
+                                                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>        
+                                </div>
+                                <div class="mota">
+                                    <div class="title">
+                                        <p>*Mẫu mặt hàng</p>
+                                    </div>
+                                    <div class="input">
+                                        <label id="label-mh" for="maumathang"></label>
+                                        <input id="maumathang" type="hidden" name="maumathang" value="1">
+                                    </div>
+                                </div>
+                                <div class="mota">
+                                    <div class="title">
+                                        <p>*Mô tả</p>
+                                    </div>
+                                    <div class="input">
+                                        <label for="mota"></label>
+                                        <textarea type="text" name="mota" required=""></textarea>
+                                    </div>
+                                </div>
+                                <div class="mota">
+                                    <div class="title">
+                                        <p>*Giá</p>
+                                    </div>
+                                    <div class="input">
+                                        <label for="gia"></label>
+                                        <input type="text" name="gia" required="" value="">
+                                    </div>
+                                </div>
+                                <div class="mota">
+                                    <div class="title">
+                                        <p>*Số lượng</p>
+                                    </div>
+                                    <div class="input">
+                                        <label for="tonkho"></label>
+                                        <input type="text" name="tonkho" required="">
+                                    </div>
+                                </div>
+                                <div class="anh-video" style="display: flex;">
+                                    <div class="mota mota-1">
+                                        <div class="title">
+                                            <p>*Ảnh sản phẩm</p>
+                                        </div>
+                                        <div class="input">
+                                            <label for="anh" class="image"><img src="images/noimage.png" alt=""></label>
+                                            <input type="file" name="anh" required="" class="getImage">
+                                        </div>
+                                    </div>
+                                    <div class="mota mota-1">
+                                        <div class="title">
+                                            <p>*Video sản phẩm</p>
+                                        </div>
+                                        <div class="input">
+                                            <label for="video" class="image"><img src="images/noimage.png" alt=""></label>
+                                            <input type="file" name="video" required="" class="getImage">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <button type="submit" class="add-product">+ Lưu Sản Phẩm</button>
                             </form>
                         </div>
                 </div>
